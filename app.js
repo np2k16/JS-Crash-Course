@@ -132,3 +132,136 @@ for(i = 0; i < str4.length; i++){
 }
 
 //FUNCTIONS
+function welcomePersonToFES(firstName, lastName){
+    console.log(`Welcome to FES, ${firstName} ${lastName}`)
+}
+
+welcomePersonToFES('Nilay', 'Prajapati')
+welcomePersonToFES('Sam', 'Patel')
+welcomePersonToFES('Bob', "Saget")
+
+function sumOfTwoNums(num1, num2){
+    return num1 + num2
+}
+
+console.log(sumOfTwoNums(10, 10))
+
+function convertCelsiusToFahrenheit(num){
+    return num * 1.8 + 32
+}
+
+console.log(convertCelsiusToFahrenheit(0))
+console.log(convertCelsiusToFahrenheit(10))
+console.log(convertCelsiusToFahrenheit(30))
+
+//ARRAYS
+let arr = [20, 30, 40, 50, 100]
+console.log(arr[0])
+console.log(arr[arr.length-1])
+
+arr.push(200)
+
+console.log(arr)
+
+let newArr = arr.filter(element => element < 50)
+
+console.log(newArr)
+
+let grades = ['A+', 'A', 'FAIL']
+let newGrades = grades.filter(element => element !== 'FAIL')
+console.log(newGrades)
+
+newGrades = []
+for(let i = 0; i < grades.length; i++){
+    if(grades[i] !== 'FAIL'){
+        newGrades.push(grades[i])
+    }
+}
+console.log(newGrades)
+
+let arr2 = [1, 4, 9, 16]
+let newArr2 = arr2.map((element) => {
+    console.log(element)
+    return undefined
+})
+
+console.log(newArr2)
+
+let dollars = [1, 5, 10, 30]
+let cents = dollars.map(element => element * 100)
+console.log(cents)
+
+cents = []
+for(i = 0; i < dollars.length; i++){
+    cents.push(dollars[i] * 100)
+}
+console.log(cents)
+
+//OBJECTS
+let users = [{
+    username: 'Nilay',
+    password: 'test123',
+    email: 'n.prajapati2016@gmail.com',
+    subscription: 'VIP',
+    discord: 'Nilay#0000',
+    lessonsCompleted: [0, 1]
+},
+{
+    username: 'Sam',
+    password: 'sam123',
+    email: 'sam@gmail.com',
+    subscription: 'VIP',
+    discord: 'sam#0000',
+    lessonsCompleted: [0, 1]
+}
+]
+
+console.log(users[0].username)
+console.log(users[1].subscription)
+console.log(users[0].lessonsCompleted.map(elem => elem * 2))
+
+function login(email, password){
+    for(i = 0; i < users.length; i++){
+    if(users[i].email === email){
+    console.log(users[i])
+    if(users[i].password === password){
+        console.log('log the user in')
+    }
+    else{
+        console.log('incorrect password')
+    }
+    return
+    }
+    console.log('could not find credentials')
+}
+}
+login('n.prajapati2016@gmail.com', 'test123')
+
+function register(username, email, password, subscription, discord, lessonsCompleted){
+    console.log(username)
+    let user = {
+        username: username,
+        email: email,
+        password: password,
+        subscription: subscription,
+        discord: discord,
+        lessonsCompleted: lessonsCompleted
+    }
+    users.push(user)
+}
+register('zen', 'zen@fes.com', 'zen123', 'VIP', 'Zen#0001', [0,1])
+console.log(users)
+
+//DOM
+console.log(document.querySelector('h1'))
+
+console.log(document.getElementById('title'))
+
+document.querySelector('#title').innerHTML += " Frontend Simplified"
+
+
+document.querySelector('#title').style.fontSize='28px'
+
+function toggleDarkMode(){
+    document.querySelector('body').classList.toggle('dark-theme')
+}
